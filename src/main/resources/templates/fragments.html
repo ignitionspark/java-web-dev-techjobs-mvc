@@ -13,19 +13,34 @@
 
 <body>
 
-    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a th:href="@{/}" class="navbar-brand">TechJobs</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a th:href="@{/search}">Search</a></li>
-                    <li><a th:href="@{/list}">List</a></li>
-                </ul>
-            </div>
+<div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a th:href="@{/}" class="navbar-brand">TechJobs</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/search}">Search</a></li>
+                <li><a th:href="@{/list}">List</a></li>
+            </ul>
         </div>
     </div>
+</div>
+
+<table th:fragment="job-display-table" class="job-listing">
+    <tbody>
+    <tr th:each="job : ${jobs}">
+        <td>
+            <p th:text="'ID: ' + ${job.id}">ID Here</p>
+            <p th:text="'Name: ' + ${job.name}">Name Here</p>
+            <p th:text="'Employer: ' + ${job.employer}">Employer Here</p>
+            <p th:text="'Location: ' + ${job.location}">Location Here</p>
+            <p th:text="'Position Type: ' + ${job.positionType}">Position Type Here</p>
+            <p th:text="'Skill: ' + ${job.coreCompetency}">Skill (coreCompetency) Here</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
